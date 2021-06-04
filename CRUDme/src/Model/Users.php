@@ -56,7 +56,6 @@ class Users {
     }
 
     public static function insertUser($datas){
-        //TODO 
         // variable 
         $email = $datas['email'];
         $password = $datas['password'];

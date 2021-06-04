@@ -14,14 +14,20 @@ class Tickets{
     protected $user;
 
     //Création de tickets 
-    public static function createTicket(){
+    public static function createTicket($datas, $userId){
 
-        $date = new DateTime();
-
-
+        //ID user
+        $title = $datas['ticket-title'];
+        $content = $datas['ticket-content'];
         $db = BDD::getInstance(); //connect database
-        $request = "INSERT INTO tickets() VALUES ...";
+        $request = "INSERT INTO tickets(use_id, tic_title, tic_content) VALUES (:userId, :title, :content)";
 
+        $req = $db->prepare($request);
+        $req->bindValue(":userId", $userId);
+        $req->bindValue(":title", $title);
+        $req->bindValue(":content", $content);
+        $req->execute();
+        return true;
     }
 
     public static function getTickets(){
@@ -34,6 +40,22 @@ class Tickets{
         $req->execute();
         $tickets = $req->fetchAll();
         return $tickets;
+    }
+
+    //TODO UPDATE
+    //TODO DELETE
+
+    public static function deleteTicket($id, $userId){
+
+        $db = BDD::getInstance();
+        $request = "DELETE FROM tickets WHERE tic_id=:id AND use_id=:userId;";
+        
+        $req = $db->prepare($request);
+        $req->bindValue(":id", $id);
+        $req->bindValue(":userId", $userId);
+        $req->execute();
+        return true;
+
     }
 
 }

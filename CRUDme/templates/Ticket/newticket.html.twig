@@ -23,28 +23,16 @@
                                     <p class="validate_message" >{{valmessage}}</p>
                                 {% endif %}
 
-                                <form method="post" action="{{ path }}/?controller=User&action=createUser">
+                                <form method="POST" action="{{ path }}/?controller=Ticket&action=newTicket">
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user"name="email"  placeholder="Titre..">
+                                        <input type="text" class="form-control form-control-ticket" name="ticket-title"  placeholder="Nom du ticket...">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" name="pseudo" placeholder="Votre pseudo...">
+                                        <input type="text" class="form-control form-control-ticket" name="ticket-content" placeholder="Tâche à faire...">
                                     </div>
-
-                                    <div class="row">
-                                    <div class="form-group col-lg-6">
-                                        
-                                        <input type="password" class="form-control form-control-user" name="password" placeholder="Votre mot de passe...">
-                                    </div>
-                                    <div class="form-group col-lg-6">
-                            
-                                        <input type="password" class="form-control form-control-user" name="password-val" placeholder="Votre mot de passe... (validation)">
-                                    </div>
-                                    </div>
-                                    <input type="submit" value="Confirmer l'inscription" class="btn btn-primary btn-user btn-block"/>
+                                    <input type="submit" value="Ajouter le ticket" class="btn btn-primary btn-user btn-block"/>
                                 </form>
                                 <hr>
-                                <p>Déjà un compte ? <a href="{{ path }}/?controller=User&action=loginForm">Vous connecter</a></p>
                             </div>
 
                         </div>
