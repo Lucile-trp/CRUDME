@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+<section class="section-content">
+
+    {% if session is defined %}
+    <h1>
+        Bonjour {{ session.user.pseudo }} ! Voici votre TODO list
+        </h1>
+        <br>
+        <a href="{{ path }}/?controller=Ticket&action=ticketForm"><button class="btn btn-dark">Ajouter un ticket</button></a>
+        <hr>
+
+        
+
+
+    {% endif %}
+
+    <div class="content-tickets ">
+
+    {% for ticket in tickets %}
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <h5 class="card-title">{{ ticket.tic_title }}</h5>
+        </div>
+                <div class="card-body">
+                    <p class="card-text">{{ ticket.tic_content }}</p>
+                </div>
+                <cite title="Source Title">{{ ticket.tic_date }}</cite>
+                <button class="btn btn-secondary btn-ticket-modify" type="button">Modifier</button>
+    </div>
+    
+    {% endfor %}
+
+    </div>
+
+    
+
+</section>
+{% endblock %}

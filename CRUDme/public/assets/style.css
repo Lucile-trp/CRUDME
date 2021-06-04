@@ -1,0 +1,61 @@
+*{
+    font-family: sans-serif;
+}
+
+header {
+    padding: 0px 200px;
+    background-color: #000080;
+    margin: 10px 10px;
+    border-radius: 5px;
+}
+
+
+.nav-link{
+    color: white;
+}
+
+.nav-connected {
+    text-align: end;
+
+}
+
+.section-content {
+    margin: 0px 150px;
+}
+
+.error_message {
+    color : red;
+}
+
+.validate_message {
+    color: green;
+}
+
+.form-group{
+    margin: 30px 0px;
+}
+
+.content-tickets{
+    padding: 20px 0px;
+    display : grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+
+footer{
+
+    background-color: #000080;
+    margin: 10px 10px;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 98.5%;
+    color: white;
+    text-align: center;
+    
+}
+
+.copyright{
+    padding-top: 15px;;
+}

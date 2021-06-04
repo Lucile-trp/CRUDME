@@ -1,0 +1,63 @@
+{% extends "base.html.twig" %}
+
+{% block content%}
+
+<body class="bg-gradient-primary">
+    <div class="container">
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">New ticket</h1>
+                                </div>
+                                {% if errmessage is defined %}
+                                    <p class="error_message" >{{errmessage}}</p>
+                                {% endif %}
+
+                                {% if valmessage is defined %}
+                                    <p class="validate_message" >{{valmessage}}</p>
+                                {% endif %}
+
+                                <form method="post" action="{{ path }}/?controller=User&action=createUser">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control form-control-user"name="email"  placeholder="Titre..">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user" name="pseudo" placeholder="Votre pseudo...">
+                                    </div>
+
+                                    <div class="row">
+                                    <div class="form-group col-lg-6">
+                                        
+                                        <input type="password" class="form-control form-control-user" name="password" placeholder="Votre mot de passe...">
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                            
+                                        <input type="password" class="form-control form-control-user" name="password-val" placeholder="Votre mot de passe... (validation)">
+                                    </div>
+                                    </div>
+                                    <input type="submit" value="Confirmer l'inscription" class="btn btn-primary btn-user btn-block"/>
+                                </form>
+                                <hr>
+                                <p>Déjà un compte ? <a href="{{ path }}/?controller=User&action=loginForm">Vous connecter</a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+{% endblock %}
