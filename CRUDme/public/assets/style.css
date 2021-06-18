@@ -24,16 +24,14 @@ header {
 
 /* Menu burger */
 
- body-burger
- {
+ body-burger {
    margin: 0;
    padding: 0;
    background: #232323;
    color: #cdcdcd;
  }
  
- #menuToggle
- {
+ #menuToggle {
    display: block;
    position: relative;
    top: 4px;
@@ -45,48 +43,37 @@ header {
    user-select: none;
  }
  
- #menuToggle a
- {
+ #menuToggle a{
    text-decoration: none;
    color: #232323;
    
    transition: color 0.3s ease;
  }
  
- #menuToggle a:hover
- {
+ #menuToggle a:hover{
    color: tomato;
  }
  
  
- #menuToggle input
- {
+ #menuToggle input {
    display: block;
    width: 40px;
    height: 32px;
    position: absolute;
    top: -7px;
    left: -5px;
-   
    cursor: pointer;
-   
-   opacity: 0; /* hide this */
-   z-index: 2; /* and place it over the hamburger */
-   
+   opacity: 0; 
+   z-index: 2; 
    -webkit-touch-callout: none;
  }
  
- /*
-  * Just a quick hamburger
-  */
- #menuToggle span
- {
+ #menuToggle span{
    display: block;
    width: 33px;
    height: 4px;
    margin-bottom: 5px;
    position: relative;
-   
    background: white;
    border-radius: 3px;
    
@@ -99,50 +86,31 @@ header {
                opacity 0.55s ease;
  }
  
- #menuToggle span:first-child
- {
+ #menuToggle span:first-child{
    transform-origin: 0% 0%;
  }
  
- #menuToggle span:nth-last-child(2)
- {
+ #menuToggle span:nth-last-child(2){
    transform-origin: 0% 100%;
  }
  
- /* 
-  * Transform all the slices of hamburger
-  * into a crossmark.
-  */
- #menuToggle input:checked ~ span
- {
+ #menuToggle input:checked ~ span{
    opacity: 1;
    transform: rotate(45deg) translate(-2px, -1px);
    background: #232323;
  }
  
- /*
-  * But let's hide the middle one.
-  */
- #menuToggle input:checked ~ span:nth-last-child(3)
- {
+ #menuToggle input:checked ~ span:nth-last-child(3){
    opacity: 0;
    transform: rotate(0deg) scale(0.2, 0.2);
  }
- 
- /*
-  * Ohyeah and the last one should go the other direction
-  */
- #menuToggle input:checked ~ span:nth-last-child(2)
- {
+
+ #menuToggle input:checked ~ span:nth-last-child(2){
    transform: rotate(-45deg) translate(0, -1px);
  }
  
- /*
-  * Make this absolute positioned
-  * at the top left of the screen
-  */
- #menu
- {
+
+ #menu{
    position: absolute;
    width: 300px;
    margin: -100px 0 0 -60px;
@@ -159,24 +127,21 @@ header {
    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
  }
  
- #menu li
- {
+ #menu li{
    padding: 10px 0;
    font-size: 22px;
  }
  
- /*
-  * And let's slide it in from the left
-  */
- #menuToggle input:checked ~ ul
- {
+ #menuToggle input:checked ~ ul{
    transform: none;
  }
+ /* END Of BURGER MENU*/
 
 /* global content */
-
 .section-content {
-    margin: 0px 150px;
+    margin: 0px 150px 100px 150px;
+    height: auto;
+    min-height: 70vh;
 }
 
 .error_message {
@@ -201,20 +166,34 @@ header {
     grid-template-rows: auto;
 }
 
-.card {
+.card-element {
     grid-column: auto;
+    margin: 10px 5px;
 }
+
+.card-body{
+  padding : 10px;
+}
+
+.row-button{
+  padding: 10px;
+}
+
+.style-button {
+  margin: auto;
+  width: 80%;
+}
+
 
 
 /* Footer */
 footer{
 
     background-color: #000080;
-    margin: 10px 10px;
     border-radius: 5px;
-    position: fixed;
-    bottom: 0;
-    width: 98.5%;
+    height: 50px;
+    margin: auto 10px;
+    bottom: 10;
     color: white;
     text-align: center;
     
@@ -232,10 +211,18 @@ footer{
         margin: 10px 10px;
         border-radius: 5px;
     }
+    .nav-link{
+      margin: 0px 0px;
+    }
 
     .header-title{
         align-items: flex-end;
     }
+
+    .bg-login-image img{
+      display: none;
+    }
+
     .small-navbar{
         display : block;
     }
@@ -246,6 +233,8 @@ footer{
 
     .section-content {
         margin: 0px 20px;
+        height: auto;
+        min-height: 80vh;
     }
 
     .content-tickets{
@@ -262,6 +251,9 @@ footer{
         display : none;
 
     }
+    header{
+      padding: 0px 0px ;
+    }
 
     .navbar-classique{
         display: flex;
@@ -272,6 +264,18 @@ footer{
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
     }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width : 990px){
+
+  header {
+    padding: 0px 100px;
+}
+
+.nav-link{
+  margin: 0px 10px;
+}
 
 }
 

@@ -20,20 +20,20 @@
 
     {% for ticket in tickets %}
 
-    <div class="card w-100 ms-2 me-2" style="width: 18rem;">
+    <div class="card card-element">
         <div class="card-header">
             <h5 class="card-title">{{ ticket.tic_title }}</h5>
         </div>
                 <div class="card-body">
                     <p class="card-text">{{ ticket.tic_content }}</p>
                 </div>
-                <cite title="Source Title">{{ ticket.tic_date }}</cite>
-                <div class="row">
-                    <div class="col-6">
-                        <a href="{{ path }}/?controller=Ticket&action=updateTicket"><button class="btn btn-secondary btn-ticket-modify" type="button">Modifier</button></a>
+                <cite title="Source Title">{{ ticket.tic_date|date("d/m/Y H:m:s") }}</cite>
+                <div class="row row-button">
+                    <div class="col-6 ">
+                        <a href="{{ path }}/?controller=Ticket&action=updateTicketForm&param={{ticket.tic_id}}"><button class="btn btn-secondary btn-ticket-modify style-button" type="button">Modifier</button></a>
                     </div>
                     <div class="col-6">
-                        <a href="{{ path }}/?controller=Ticket&action=deleteTicket&param={{ticket.tic_id}}"><button class="btn btn-danger btn-ticket-delete" type="button">Supprimer</button></a>
+                        <a href="{{ path }}/?controller=Ticket&action=deleteTicket&param={{ticket.tic_id}}"><button class="btn btn-danger btn-ticket-delete style-button" type="button">Supprimer</button></a>
                     </div>
                 </div>
                 

@@ -21,13 +21,13 @@
             but hey, it's pure CSS magic.
             -->
             <ul id="menu">
-            <a href="#"><li>Accueil</li></a>
+            <a href="{{ path }}/?controller=Ticket&action=getTickets"><li>Accueil</li></a>
             {% if session is defined %}
-            <a href="#"><li>Tickets</li></a>
-            <a href="#"><li>Profil</li></a>
+            <a href="{{ path }}/?controller=Ticket&action=getTickets"><li>Tickets</li></a>
+            {# <a href="#"><li>Profil</li></a> #}
             <a href="{{ path }}/?controller=User&action=disconnect"><li>Se déconnecter</li></a>
             {% else %}
-            <a href="#"><li>Se connecter</li></a>
+            <a href="{{ path }}/?controller=User&action=loginForm"><li>Se connecter</li></a>
             {% endif %}
             </ul>
         </div>
@@ -36,12 +36,12 @@
             {% if session is defined %}
             <a class="nav-link navbar-brand"> Bonjour {{ session.user.pseudo }} </a>
             {% else %}
-            <a class="nav-link navbar-brand" href="#">CRUDme</a>
+            <a class="nav-link navbar-brand" href="{{ path }}/?controller=Ticket&action=getTickets">CRUDme</a>
             {% endif %}
-            </div>
         </div>
 
         </nav>
+    </div>
             
         {# Header classique #}
         <div class="navbar-classique">
@@ -50,28 +50,30 @@
                 {% if session is defined %}
                 <a class="nav-link navbar-brand"> Bonjour {{ session.user.pseudo }} </a>
                 {% else %}
-                <a class="nav-link navbar-brand" href="#">CRUDme</a>
+                <a class="nav-link navbar-brand"  href="{{ path }}/?controller=Ticket&action=getTickets">CRUDme</a>
                 {% endif %}
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-       
-                {% if session is defined %}
-
-                <a class="nav-link nav-connected nav-disconnect" href="{{ path }}/?controller=Ticket&action=getTickets">TODO</a>
-                <a class="nav-link nav-connected nav-disconnect" href="{{ path }}/?controller=User&action=disconnect">Se deconnecter</a>
-                <a class="nav-link nav-connected nav-profil" href="{{ path }}/?controller=User&action=profil">Profil</a>
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-person-circle" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                </svg>
                 
+                <div class="d-flex flex-row" id="navbarNavAltMarkup">
+                    <div class="navbar-nav d-flex flex-row">
+            
+                        {% if session is defined %}
 
-                {% else %}
+                        <a class="nav-link nav-connected nav-disconnect" href="{{ path }}/?controller=Ticket&action=getTickets">TODO</a>
+                        <a class="nav-link nav-connected nav-disconnect" href="{{ path }}/?controller=User&action=disconnect">Se deconnecter</a>
+                        {# <a class="nav-link nav-connected nav-profil" href="{{ path }}/?controller=User&action=profil">Profil</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                        </svg> #}
+                        
 
-                <a class="nav-link" href="{{ path }}/?controller=User&action=loginForm">Login</a>
+                        {% else %}
 
-                {% endif %}
-            </div>
+                        <a class="nav-link" href="{{ path }}/?controller=User&action=loginForm">Login</a>
+
+                        {% endif %}
+                    </div>
+                </div>
         </nav>
         </div>
     </header>

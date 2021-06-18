@@ -42,9 +42,38 @@ class Tickets{
         return $tickets;
     }
 
-    //TODO UPDATE
-    //TODO DELETE
+    public static function getOne($tic_id){
+        $db = BDD::getInstance();
+        $request = "SELECT * FROM tickets WHERE tic_id=:id;";
 
+        $req = $db->prepare($request);
+        $req->bindValue(":id", $tic_id);
+        $req->execute();
+        $tickets = $req->fetch();
+        return $tickets;
+
+    }
+
+    //TODO UPDATE
+
+    public static function updateTicket($datas, $userId){
+        $db = BDD::getInstance();
+        $id = $datas['ticket-id'];
+        $content = $datas['ticket-content'];
+        $title = $datas['ticket-title'];
+        $request = "UPDATE tickets SET tic_title=:title , tic_content=:content WHERE tic_id=:id AND use_id=:userId;";
+
+        $req = $db->prepare($request);
+        $req->bindValue(":title", $title);
+        $req->bindValue(":content", $content);
+        $req->bindValue(":id", $id);
+        $req->bindValue(":userId", $userId);
+        $req->execute();
+        return true;
+
+    }
+    
+    //TODO DELETE
     public static function deleteTicket($id, $userId){
 
         $db = BDD::getInstance();

@@ -8,9 +8,9 @@
             <div class="col-xl-10 col-lg-12 col-md-9">
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
+                        <!-- Card Body 2 columns -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                            <div class="col-lg-6 d-block d-xs-none d-sm-none d-lg-block bg-login-image">
                             <img src="http://placekitten.com/500/600">
                             </div>
                             <div class="col-lg-6">
@@ -37,7 +37,7 @@
                                     </form>
                                     <hr>
                                     <p>Pas de compte ? <a href="{{ path }}/?controller=User&action=createForm">En créer un.</a></p>
-                                    <a class="" href="{{ path }}/?controller=User&action=loginForm" ><p>Mot de passe perdu ? </a></p>
+                                    {# <a class="" href="{{ path }}/?controller=User&action=loginForm" ><p>Mot de passe perdu ? </a></p> #}
                                 </div>
                             </div>
                         </div>
